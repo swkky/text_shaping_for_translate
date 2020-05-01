@@ -14,42 +14,74 @@ margin:auto;
 </head>
 <body>
 
-<form method="post">
-  <textarea name="text" id="text" cols="100" rows="20">{{ request.form['text'] }}</textarea>
+<form method="post" name="input">
+  <textarea name="text" id="text" cols="100" rows="20" placeholder="ここに英文を入力してください">{{ request.form['text'] }}</textarea>
   </br>
   <table>
     <td>
       <button class="submit" value="translate" >Submit!</button>
     </td>
-    <td>
-      <button id="btn_copy">Copy!</button>
-    </td>
   </table>
 </form>
 
   </br>
-<textarea name="shaping_text" id="shaping_text" cols="100" rows="20">
-{% for t in text %}
+  <table>
+    <td>
+      <button id="button">Copy!</button>
+      <script>${script}</script>
+    </td>
+  </table>
+<textarea id="shaping_text" cols="100" rows="20" placeholder="ここに整形後の英文が出力されます">
+{% for t in shaping_lines %}
 {{t}}
 {%endfor%} 
 </textarea>
 </br>
 </br>
+</body>
 
 <script>
-function txtCopy() {
-  var tgt = document.getElementById('shaping_text');
-  if (navigator.userAgent.match(/ipad|ipod|iphone/i)) {
-    const range = document.createRange();
-    range.selectNode(tgt);
-    window.getSelection().addRange(range);
-    document.execCommand('copy');
-  } else {
-    tgt.select();
-    document.execCommand('copy');
-  }
-  alert("text copied!!");
+function execCopy(string){
+
+  // 空div 生成
+  var tmp = document.createElement("div");
+  // 選択用のタグ生成
+  var pre = document.createElement('pre');
+  
+  // 親要素のCSSで user-select: none だとコピーできないので書き換える
+  pre.style.webkitUserSelect = 'auto';
+  pre.style.userSelect = 'auto';
+
+  tmp.appendChild(pre).textContent = string;
+
+  // 要素を画面外へ
+  var s = tmp.style;
+  s.position = 'fixed';
+  s.right = '200%';
+
+  // body に追加
+  document.body.appendChild(tmp);
+  // 要素を選択
+  document.getSelection().selectAllChildren(tmp);
+
+  // クリップボードにコピー
+  var result = document.execCommand("copy");
+
+  // 要素削除
+  document.body.removeChild(tmp);
+  
+  return result;
 }
-var trg = document.getElementById('btn_copy');
-trg.addEventListener('click',txtCopy);
-<script>
+
+var textarea = document.getElementById('shaping_text');
+var button = document.getElementById('button');
+
+button.onclick = function(){
+  if(execCopy(textarea.value)){
+    alert('コピーできました');
+  }
+  else {
+    alert('このブラウザでは対応していません');
+  }
+};
+</script>

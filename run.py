@@ -17,7 +17,7 @@ def text_shaping():
         ret_url = to_url(text)
         #文字列を改行で分割
         text_list=text.splitlines()
-        return render_template("result.html",url=ret_url, text=text_list)
+        return render_template("result.html",url=ret_url, shaping_lines=text_list)
     return render_template("form.html")
 
 #app.run(host='0.0.0.0', debug=True)

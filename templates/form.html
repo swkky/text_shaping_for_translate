@@ -13,40 +13,26 @@ margin:auto;
 </style>
 </head>
 
-<form method="post">
+<body>
+<form method="post" name="input">
   <textarea name="text" id="text" cols="100" rows="20" placeholder="ここに英文を入力してください">{{ request.form['text'] }}</textarea>
   </br>
   <table>
     <td>
       <button class="submit" value="translate" >Submit!</button>
     </td>
-    <td>
-      <button class="copy" id="btn_copy">Copy!</button>
-    </td>
   </table>
 </form>
 
-
-
-  </br>
-<textarea name="shaping_text" id="shaping_text" cols="100" rows="20" placeholder="ここに整形後の英文が出力されます">
+  </br>  
+  <table>
+    <td>
+      <button class="button">Copy!</button>
+      <script>${script}</script>
+    </td>
+  </table>
+<textarea id="shaping_text" cols="100" rows="20" placeholder="ここに整形後の英文が出力されます">
 </textarea>
 </br>
 </br>
-<script>
-function txtCopy() {
-  var tgt = document.getElementById('shaping_text');
-  if (navigator.userAgent.match(/ipad|ipod|iphone/i)) {
-    const range = document.createRange();
-    range.selectNode(tgt);
-    window.getSelection().addRange(range);
-    document.execCommand('copy');
-  } else {
-    tgt.select();
-    document.execCommand('copy');
-  }
-  alert("text copied!!");
-}
-var trg = document.getElementById('btn_copy');
-trg.addEventListener('click',txtCopy);
-<script>
+</body>

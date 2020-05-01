@@ -1,6 +1,6 @@
 import re
 
-
+#テキストの整形
 def reshape_text(text):
     ret = re.sub(r"\-\s+", "", text)
     ret = re.sub(r"\-\r\n", "", ret)
