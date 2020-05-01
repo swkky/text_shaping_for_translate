@@ -2,7 +2,49 @@
 textarea{
     width:100%;
     height:30%;
+    font-size:100%;
 }
 table{
     margin:auto;
 }
+
+.btn-square-shadow-rime {
+    display: inline-block;
+    /* padding: 0.5em 9em; */
+    font-size: 28px;
+    font-family: 'Cambria',sans-serif;
+    width: 1500px;
+    height: 60px;
+    text-decoration: none;
+    background: #66CC99;/*ボタン色*/
+    color: #FFF;
+    border-bottom: solid 4px #627295;
+    border-radius: 3px;
+  }
+  .btn-square-shadow-rime:active {
+    /*ボタンを押したとき*/
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);/*下に動く*/
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);/*影を小さく*/
+    border-bottom: none;
+  }
+  .btn-square-shadow-grey {
+    display: inline-block;
+    /* padding: 0.5em 9em; */
+    font-size: 28px;
+    font-family: 'Cambria',sans-serif;
+    width: 1500px;
+    height: 60px;
+    text-decoration: none;
+    background: #444444;/*ボタン色*/
+    color: #FFF;
+    border-bottom: solid 4px #627295;
+    border-radius: 3px;
+  }
+  .btn-square-shadow-grey:active {
+    /*ボタンを押したとき*/
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);/*下に動く*/
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);/*影を小さく*/
+    border-bottom: none;
+  }
