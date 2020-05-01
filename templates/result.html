@@ -1,25 +1,13 @@
-<!DOCTYPE html>
-<html lang=“ja”>
-<head>
-<meta charset=“UTF-8”>
-<style type="text/css">
-textarea{
-width:100%;
-height:30%;
-}
-table{
-margin:auto;
-}
-</style>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block content %}
 
+<body>
 <form method="post" name="input">
   <textarea name="text" id="text" cols="100" rows="20" placeholder="ここに英文を入力してください">{{ request.form['text'] }}</textarea>
   </br>
   <table>
     <td>
-      <button class="submit" value="translate" >Submit!</button>
+      <button>Shaping!</button>
     </td>
   </table>
 </form>
@@ -27,8 +15,7 @@ margin:auto;
   </br>
   <table>
     <td>
-      <button id="button">Copy!</button>
-      <script>${script}</script>
+      <button id="copy">Copy!</button>
     </td>
   </table>
 <textarea id="shaping_text" cols="100" rows="20" placeholder="ここに整形後の英文が出力されます">
@@ -39,49 +26,4 @@ margin:auto;
 </br>
 </br>
 </body>
-
-<script>
-function execCopy(string){
-
-  // 空div 生成
-  var tmp = document.createElement("div");
-  // 選択用のタグ生成
-  var pre = document.createElement('pre');
-  
-  // 親要素のCSSで user-select: none だとコピーできないので書き換える
-  pre.style.webkitUserSelect = 'auto';
-  pre.style.userSelect = 'auto';
-
-  tmp.appendChild(pre).textContent = string;
-
-  // 要素を画面外へ
-  var s = tmp.style;
-  s.position = 'fixed';
-  s.right = '200%';
-
-  // body に追加
-  document.body.appendChild(tmp);
-  // 要素を選択
-  document.getSelection().selectAllChildren(tmp);
-
-  // クリップボードにコピー
-  var result = document.execCommand("copy");
-
-  // 要素削除
-  document.body.removeChild(tmp);
-  
-  return result;
-}
-
-var textarea = document.getElementById('shaping_text');
-var button = document.getElementById('button');
-
-button.onclick = function(){
-  if(execCopy(textarea.value)){
-    alert('コピーできました');
-  }
-  else {
-    alert('このブラウザでは対応していません');
-  }
-};
-</script>
+{% endblock content %}
