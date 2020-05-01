@@ -3,11 +3,14 @@ import re
 #テキストの整形
 def reshape_text(text):
     ret = re.sub(r"\-\s+", "", text)
+    #単語途中でのハイフン後の改行を削除
     ret = re.sub(r"\-\r\n", "", ret)
     ret = re.sub(r"\r\n", " ", ret)
     #ret = re.sub(r"-", "", ret)
     ret = ret.replace('et al.','et al')
-    ret = re.sub(r"\.", r".\n", ret)
+    #.(ピリオド)で終わるが，直後に一桁以上の数字+%が続かない.(ピリオド)を改行に置換
+    #82.1%などの対策
+    ret = re.sub(r"\.(?!\d.*%)", r".\r\n", ret)
 
     return ret
 
