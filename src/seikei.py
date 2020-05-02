@@ -2,9 +2,11 @@ import re
 
 #テキストの整形
 def reshape_text(text):
+    #ハイフン直後に\s(半角スペース，タブ，改行のいずれか)が一回以上繰り返されていれば削除
     ret = re.sub(r"\-\s+", "", text)
-    #単語途中でのハイフン後の改行を削除
+    #単語途中でのハイフン直後の改行を削除
     ret = re.sub(r"\-\r\n", "", ret)
+    #改行をスペースに置換
     ret = re.sub(r"\r\n", " ", ret)
     #ret = re.sub(r"-", "", ret)
     ret = ret.replace('et al.','et al')

@@ -5,6 +5,7 @@ textarea{
     font-size:100%;
 }
 table{
+    width: 100%;
     margin:auto;
 }
 
@@ -13,7 +14,8 @@ table{
     /* padding: 0.5em 9em; */
     font-size: 28px;
     font-family: 'Cambria',sans-serif;
-    width: 1500px;
+    font-weight: bold;
+    width: 100%;
     height: 60px;
     text-decoration: none;
     background: #66CC99;/*ボタン色*/
@@ -33,7 +35,8 @@ table{
     /* padding: 0.5em 9em; */
     font-size: 28px;
     font-family: 'Cambria',sans-serif;
-    width: 1500px;
+    font-weight: bold;
+    width: 100%;
     height: 60px;
     text-decoration: none;
     background: #444444;/*ボタン色*/
