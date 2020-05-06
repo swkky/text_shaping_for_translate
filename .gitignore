@@ -5,7 +5,6 @@ __pycache__/
 template/css
 template/fonts
 template/js
-Dockerfile
 .DS_Store
 # C extensions
 *.so
