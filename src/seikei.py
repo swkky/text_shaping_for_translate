@@ -10,7 +10,7 @@ def reshape_text(text):
     ret = re.sub(r"\r\n", " ", ret)
     #ret = re.sub(r"-", "", ret)
     ret = ret.replace('et al.','et al')
-    ret = ret.replace('."','."\r\n')
+    ret = ret.replace('.”','.”\r\n')
     #.(ピリオド)で終わるが，直後に一桁以上の数字+%が続かない.(ピリオド)を改行に置換
     #82.1%などの対策|2.2など
     ret = re.sub(r"\.(?!(\d.*%|\d))", r".\r\n", ret)
