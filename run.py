@@ -1,4 +1,5 @@
 import os
+import webbrowser
 from flask import Flask, g, redirect, render_template, request, url_for
 from src.seikei import reshape_text, to_url
 
@@ -20,7 +21,8 @@ def text_shaping():
         return render_template("result.html",url=ret_url, shaping_lines=text_list)
     return render_template("form.html")
 
+webbrowser.open("http://localhost:5000/")
+
 #app.run(host='0.0.0.0', debug=True)
 app.run(host='0.0.0.0')
-
 
