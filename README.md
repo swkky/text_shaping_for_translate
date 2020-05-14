@@ -7,7 +7,7 @@ WIP
 1. clone repository
 ```
 git clone https://github.com/swkky/text_shaping_for_translate
-cd translate/
+cd text_shaping_for_translate
 ```
 
 2. start app
