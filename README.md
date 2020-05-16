@@ -21,6 +21,10 @@ if you are docker user, following command will be available.
 docker build -t shaper_to_gt . 
 docker run -p 5000:5000 --rm -it shaper_to_gt 
 ```
+or
+```
+sh build.sh
+```
 `docker run` command is available at any directory. So I recommend you to make docker image.
 
 3. go to browser
