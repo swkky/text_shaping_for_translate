@@ -10,6 +10,7 @@ def reshape_text(text):
     ret = re.sub(r"\r\n", " ", ret)
     #ret = re.sub(r"-", "", ret)
     ret = ret.replace('et al.','et al')
+    ret = ret.replace('et.al','et al')
     ret = ret.replace('i.e.','i e ')
     ret = ret.replace('e.g.','e g ')
     ret = ret.replace('Fig.','Fig ')
